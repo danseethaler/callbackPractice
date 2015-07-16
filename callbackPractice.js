@@ -114,6 +114,18 @@ contains(names, 'Colt', function(result){
 
     //Code Here for uniq
 
+function uniq(names, cb) {
+    names.forEach(removeDuplicates)
+    cb(names);
+}
+
+function removeDuplicates(currentValue, index, array) {
+    var dupPos = array.indexOf(currentValue, index + 1);
+    if (dupPos !== -1) {
+        array.splice(dupPos, 1)
+    }
+}
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
